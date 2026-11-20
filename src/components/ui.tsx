@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { m, useReducedMotion } from 'framer-motion'
 import { Sparkles, Star } from 'lucide-react'
 
 // Brand orange (#F97316) fails AA with white text, so buttons and small orange text use #C2410C (FR-23).
@@ -53,7 +53,7 @@ export function Logo({ light = false }: { light?: boolean }) {
 export function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   const reduce = useReducedMotion()
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={reduce ? false : { y: 24 }}
       whileInView={{ y: 0 }}
@@ -61,6 +61,6 @@ export function Reveal({ children, className = '', delay = 0 }: { children: Reac
       transition={{ duration: 0.5, delay, ease: 'easeOut' }}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }

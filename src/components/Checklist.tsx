@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { m, useReducedMotion } from 'framer-motion'
 import { CircleCheck } from 'lucide-react'
 import { CHECKLIST } from '../data/cleaningData'
 import kitchenImage from '../assets/placeholders/kitchen.jpg'
@@ -65,7 +65,7 @@ export function Checklist() {
           tabIndex={0}
           className="mt-8 rounded-xl border border-line bg-white p-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-navy sm:p-8"
         >
-          <motion.ul
+          <m.ul
             key={current.id}
             initial={reduce ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export function Checklist() {
                 {item}
               </li>
             ))}
-          </motion.ul>
+          </m.ul>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">

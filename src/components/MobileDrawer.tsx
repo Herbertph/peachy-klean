@@ -1,6 +1,6 @@
 import { useEffect, useRef, type MouseEvent, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { NAV_LINKS } from '../data/business'
 import { btnPrimary, Logo } from './ui'
@@ -66,7 +66,7 @@ export function MobileDrawer({ open, onClose, returnFocusTo }: Props) {
     <AnimatePresence>
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <motion.div
+          <m.div
             data-testid="drawer-backdrop"
             className="absolute inset-0 bg-navy/60"
             onClick={onClose}
@@ -75,7 +75,7 @@ export function MobileDrawer({ open, onClose, returnFocusTo }: Props) {
             exit={{ opacity: 0 }}
             transition={{ duration }}
           />
-          <motion.div
+          <m.div
             ref={panel}
             id="mobile-menu"
             role="dialog"
@@ -115,7 +115,7 @@ export function MobileDrawer({ open, onClose, returnFocusTo }: Props) {
             <a href="#quote" onClick={(e) => goTo(e, '#quote')} className={`${btnPrimary} mt-8`}>
               GET A FREE QUOTE
             </a>
-          </motion.div>
+          </m.div>
         </div>
       )}
     </AnimatePresence>,
